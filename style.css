@@ -67,7 +67,7 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-.cta-button {
+.open-Modal {
     display: inline-block;
     background-color: #ff69b4; /* Rosa choque */
     color: #fff;
@@ -80,10 +80,64 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.cta-button:hover {
+.open-Modal:hover {
     background-color: #e05aa3;
     transform: translateY(-3px);
 }
+
+#fade,
+#modal {
+    opacity: 1;
+    transition: 0.5s;
+    pointer-events: all;
+}
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+}
+
+#modal.hide,
+#fade.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal.hide {
+    top: 0;
+}
+
 /* Rodapé */
 footer {
     background-color: #333;
@@ -150,6 +204,11 @@ footer {
     animation-duration: 5.5s;
     animation-delay: 1s;
 }
+.flower8 {
+    left: 10%;
+    animation-duration: 5.5s;
+    animation-delay: 1s;
+}
 
 @keyframes fall {
     0% {
@@ -164,6 +223,36 @@ footer {
         transform: translateY(150vh) translateX(-20px) rotate(360deg);
         opacity: 0; /* Desaparece suavemente */
     }
+}
+
+.swiper img {
+    box-shadow: 0 1px 2px #0003;
+    width: 80%;
+    height: 100%;
+}
+
+.swiper {
+    height: 100vh;
+}
+
+.swiper-slide {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 450px) {
+    .swiper {
+        height: 400px;
+    }
+}
+
+.swiper-button-next {
+    color: #fff;
+}
+.swiper-button-prev {
+    color: #fff;
 }
 
 /* Responsividade */

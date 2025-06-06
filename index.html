@@ -3,22 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Para Minha Namorada Especial ❤️</title>
-        <link rel="stylesheet" href="style.css" />
+        <title>Para Minha Namorada Especial (GABY) ❤️</title>
         <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap"
             rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
         />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <header class="hero">
+            <div id="fade" class="hide"></div>
             <div class="hero-content">
-                <h1>Para a mulher da minha vida, minha eterna namorada!</h1>
+                <h1>Para a mulher da minha vida, minha eterna Gaby! ❤️</h1>
                 <p>
                     Com você, cada dia é uma nova aventura e o amor se renova.
                     Você ilumina meu mundo!
                 </p>
-                <a href="#" class="cta-button" id="openMessageModal"
+                <a href="#" class="open-Modal" id="open-Modal"
                     >Minha Mensagem para Você</a
                 >
             </div>
@@ -59,36 +60,60 @@
                 alt="Flor caindo"
                 class="flower flower7"
             />
+            <img
+                src="images/flor 4.png"
+                alt="Flor caindo"
+                class="flower flower8"
+            />
         </div>
-        <div class="carousel-container">
-            <div class="carousel">
-                <img src="" alt="Descrição da Imagem 1" />
-                <img src="" alt="Descrição da Imagem 2" />
-                <img src="" alt="Descrição da Imagem 3" />
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="project-img">
+                        <img src="./images/Foto 1.jpeg" alt="Foto 01" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="project-img">
+                        <img src="./images/Foto 2.png" alt="Foto 02" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="project-img">
+                        <img src="./img/foto_03.png" alt="Foto 03" />
+                    </div>
+                </div>
             </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
-        <div id="messageModal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <h2>Você é a minha melodia favorita</h2>
+        <div id="modal" class="hide">
+            <div class="modal-header">
+                <h2>Este é o Modal</h2>
+                <button id="close-Modal">Fechar</button>
+            </div>
+            <div class="modal-body">
                 <p>
-                    Desde o primeiro dia, você transformou minha vida de uma
-                    forma que nunca imaginei ser possível. Sua alegria, sua
-                    força e seu carinho são presentes que celebro todos os dias.
-                    Cada momento ao seu lado é precioso, e mal posso esperar
-                    para construir um futuro cheio de amor, risadas e muitas
-                    outras memórias incríveis com você.
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Hic, quam? Quas accusantium id cupiditate iste veritatis
+                    repudiandae odio dolore voluptas. Eum, deserunt quod. Sit
+                    similique laudantium assumenda repellat vel necessitatibus.
                 </p>
                 <p>
-                    Obrigado(a) por ser você. Eu te amo mais do que palavras
-                    podem expressar.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Eius alias voluptate doloremque, totam inventore autem quis
+                    non error! Earum ullam fuga, officiis voluptates pariatur
+                    unde et adipisci ducimus non obcaecati.
                 </p>
-                <p class="signature">- Com todo o meu amor, [Seu Nome]</p>
             </div>
         </div>
 
         <footer>
             <p>&copy; 2025 Feito com amor para você!</p>
         </footer>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
