@@ -1,14 +1,15 @@
 var swiper = new Swiper(".swiper", {
-    cssMode: true,
+    effect: "cards",
+    cardsEffect: {
+        perSlideOffset: 1,
+        slideShadows: false
+    },
+    grabCursor: true,
     loop: true,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
-    },
-    pagination: {
-        el: ".swiper-pagination"
-    },
-    keyboard: true
+    }
 });
 
 const openModalButton = document.querySelector("#open-Modal");
