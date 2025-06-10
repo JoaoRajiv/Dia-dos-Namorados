@@ -1,9 +1,4 @@
 var swiper = new Swiper(".swiper", {
-    effect: "cards",
-    cardsEffect: {
-        perSlideOffset: 1,
-        slideShadows: false
-    },
     grabCursor: true,
     loop: true,
     navigation: {
@@ -26,3 +21,40 @@ const toggleModal = () => {
         () => console.log("Modal toggled") || toggleModal()
     );
 });
+
+function criarContador() {
+    const dataInicial = new Date("2024-08-04T02:00:00");
+    const elementoContador = document.getElementById("contador");
+
+    function atualizarContador() {
+        const dataAtual = new Date();
+        const diferenca = dataAtual.getTime() - dataInicial.getTime();
+
+        const segundos = Math.floor(diferenca / 1000);
+        const minutos = Math.floor(segundos / 60);
+        const horas = Math.floor(minutos / 60);
+        const dias = Math.floor(horas / 24);
+
+        const segundosRestantes = segundos % 60;
+        const minutosRestantes = minutos % 60;
+        const horasRestantes = horas % 24;
+
+        const formatarNumero = num => (num < 10 ? "0" + num : num);
+
+        const contadorTexto = `
+      Tempo oficialmente juntos
+      ${dias} dias
+      ${formatarNumero(horasRestantes)} horas
+      ${formatarNumero(minutosRestantes)} minutos
+      ${formatarNumero(segundosRestantes)} segundos
+    `;
+
+        if (elementoContador) {
+            elementoContador.innerText = contadorTexto;
+        }
+    }
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+}
+
+document.addEventListener("DOMContentLoaded", criarContador);
