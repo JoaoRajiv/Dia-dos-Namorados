@@ -4,6 +4,9 @@ var swiper = new Swiper(".swiper", {
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
+    },
+    autoplay: {
+        delay: 15000
     }
 });
 
@@ -41,16 +44,30 @@ function criarContador() {
 
         const formatarNumero = num => (num < 10 ? "0" + num : num);
 
-        const contadorTexto = `
-      Tempo oficialmente juntos
-      ${dias} dias
-      ${formatarNumero(horasRestantes)} horas
-      ${formatarNumero(minutosRestantes)} minutos
-      ${formatarNumero(segundosRestantes)} segundos
-    `;
+        const contadorHTML = `
+            <div class="message">Tempo sendo feliz com você</div>
+            <div class="time-unit">
+                <span class="number">${dias}</span> <span class="label">dias</span>
+            </div>
+            <div class="time-unit">
+                <span class="number">${formatarNumero(
+                    horasRestantes
+                )}</span> <span class="label">horas</span>
+            </div>
+            <div class="time-unit">
+                <span class="number">${formatarNumero(
+                    minutosRestantes
+                )}</span> <span class="label">minutos</span>
+            </div>
+            <div class="time-unit">
+                <span class="number">${formatarNumero(
+                    segundosRestantes
+                )}</span> <span class="label">segundos</span>
+            </div>
+        `;
 
         if (elementoContador) {
-            elementoContador.innerText = contadorTexto;
+            elementoContador.innerHTML = contadorHTML;
         }
     }
     setInterval(atualizarContador, 1000);
