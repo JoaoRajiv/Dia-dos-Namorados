@@ -12,6 +12,8 @@ body {
     font-family: "Edu NSW ACT Cursive", cursive;
     line-height: 1.6;
     background-color: #601a6e;
+    background: url("/images/c58d078a-856c-4aed-9ff9-0bf536e245f2.jpg")
+        no-repeat center center/cover;
 }
 
 .container {
@@ -25,11 +27,9 @@ body {
 
 /* Seção Hero (Cabeçalho) */
 .hero {
-    background: url("https://via.placeholder.com/1500x800/FFC0CB/FFFFFF?text=Sua+Foto+Aqui")
-        no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 50px 20px;
     position: relative;
     display: flex;
     align-items: center;
@@ -44,7 +44,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -67,9 +66,164 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+.music-player {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    font-family: "Arial", sans-serif;
+    margin: 5em auto auto;
+}
+
+.album-art img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2#music-title {
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+h3#music-artist {
+    margin: 0 0 2px;
+    color: #000000;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.progress-container {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 8px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #000000; /* Cor da barra de progresso */
+    height: 100%;
+    width: 0%; /* Inicia com 0% */
+    border-radius: 5px;
+    transition: width 0.1s linear; /* Suaviza a transição da barra */
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #0e0e0e;
+}
+
+.controls {
+    display: flex;
+    justify-content: center; /* Centraliza o botão de play/pause */
+    gap: 15px; /* Mantido caso queira adicionar outros controles mais tarde */
+}
+
+.control-btn {
+    background-color: -webkit-linear-gradient(
+        127deg,
+        #ae1fd6,
+        #d60068,
+        #000000
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        127deg,
+        #ae1fd6,
+        #d60068,
+        #000000
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.control-btn:active {
+    background-color: black;
+}
+
+#contador {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre as unidades de tempo */
+    align-items: center;
+}
+
+.message {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 100px auto 10px;
+}
+
+.time-unit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.number {
+    font-size: 1.2em; /* Tamanho do número */
+    font-weight: bold;
+    background-color: #601a6e; /* Cor de fundo do quadrado do número */
+    padding: 15px 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Cantos levemente arredondados */
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.label {
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos opcionais para responsividade */
+@media (max-width: 600px) {
+    #contador {
+        padding: 20px;
+        gap: 10px;
+    }
+    .message {
+        font-size: 1.2em;
+    }
+    .number {
+        font-size: 1em;
+        padding: 10px 15px;
+        min-width: 60px;
+    }
+    .label {
+        font-size: 1em;
+    }
+}
+
 .open-Modal {
     display: inline-block;
-    background-color: #ff69b4;
+    background-color: #601a6e;
     color: #fff;
     padding: 15px 30px;
     text-decoration: none;
@@ -150,7 +304,7 @@ footer {
 
 .falling-flowers {
     position: absolute;
-    top: -150px; /* Inicia acima da tela */
+    top: -110px;
     left: 0;
     width: 100%;
     height: 200vh;
@@ -164,7 +318,6 @@ footer {
     animation: fall ease-in-out infinite;
 }
 
-/* Mais flores com diferentes tempos e posições */
 .flower1 {
     left: -20px;
     animation-duration: 5s;
@@ -238,12 +391,13 @@ footer {
 
 .swiper img {
     box-shadow: 0 1px 2px #0003;
-    max-width: 100%;
-    max-height: 80vh;
+    max-width: 80%;
+    max-height: 90vh;
+    border-radius: 2em;
 }
 
 .swiper {
-    height: 100vh;
+    height: 70vh;
 }
 
 .swiper-slide {
@@ -290,7 +444,7 @@ footer {
     }
 
     .hero-content p {
-        font-size: 0.9em;
+        font-size: 1.2em;
     }
 
     .cta-button {
