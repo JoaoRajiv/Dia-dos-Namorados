@@ -75,3 +75,77 @@ function criarContador() {
 }
 
 document.addEventListener("DOMContentLoaded", criarContador);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const audioSource = document.getElementById("audio-source");
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    const progressBar = document.getElementById("progress-bar");
+    const progressContainer = document.querySelector(".progress-container");
+    const albumCover = document.getElementById("album-cover");
+    const musicTitle = document.getElementById("music-title");
+    const musicArtist = document.getElementById("music-artist");
+    const currentTimeSpan = document.getElementById("current-time");
+    const durationSpan = document.getElementById("duration");
+
+    let isPlaying = false;
+
+    // --- Configure SUA música aqui ---
+    const yourMusic = {
+        title: "Lisboa",
+        artist: "ANAVITÓRIA, Lenine",
+        src: "/musica.mp3", // **Altere para o caminho da sua música!**
+        cover: "/images/capa.jpg" // **Altere para o caminho da sua capa!**
+    };
+    function loadYourMusic() {
+        audioSource.src = yourMusic.src;
+        albumCover.src = yourMusic.cover;
+        musicTitle.textContent = yourMusic.title;
+        musicArtist.textContent = yourMusic.artist;
+        audioSource.load();
+    }
+
+    function playPauseMusic() {
+        if (isPlaying) {
+            audioSource.pause();
+            playPauseBtn.textContent = "▶";
+        } else {
+            audioSource.play();
+            playPauseBtn.textContent = "⏸";
+        }
+        isPlaying = !isPlaying;
+    }
+
+    audioSource.addEventListener("timeupdate", () => {
+        const progressPercent =
+            (audioSource.currentTime / audioSource.duration) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+
+        const formatTime = time => {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        };
+
+        if (!isNaN(audioSource.duration)) {
+            currentTimeSpan.textContent = formatTime(audioSource.currentTime);
+            durationSpan.textContent = formatTime(audioSource.duration);
+        }
+    });
+
+    progressContainer.addEventListener("click", e => {
+        const width = progressContainer.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audioSource.duration;
+        audioSource.currentTime = (clickX / width) * duration;
+    });
+
+    audioSource.addEventListener("ended", () => {
+        isPlaying = false;
+        playPauseBtn.textContent = "▶";
+        audioSource.currentTime = 0;
+    });
+
+    playPauseBtn.addEventListener("click", playPauseMusic);
+
+    loadYourMusic();
+});
