@@ -65,6 +65,71 @@ body {
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
+#contador {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre as unidades de tempo */
+    align-items: center;
+}
+
+.message {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.time-unit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+/* Estilos para os números (os "quadrados" principais) */
+.number {
+    font-size: 1.2em; /* Tamanho do número */
+    font-weight: bold;
+    background-color: #601a6e; /* Cor de fundo do quadrado do número */
+    padding: 15px 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Cantos levemente arredondados */
+    min-width: 80px; /* Largura mínima para manter o formato de quadrado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.label {
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos opcionais para responsividade */
+@media (max-width: 600px) {
+    #contador {
+        padding: 20px;
+        gap: 10px;
+    }
+    .message {
+        font-size: 1.2em;
+    }
+    .number {
+        font-size: 1em;
+        padding: 10px 15px;
+        min-width: 60px;
+    }
+    .label {
+        font-size: 1em;
+    }
+}
 
 .music-player {
     background-color: rgba(255, 255, 255, 0.3);
