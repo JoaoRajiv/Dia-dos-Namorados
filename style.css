@@ -1,5 +1,5 @@
 /* Importação de Fontes */
-@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 /* Reset Básico */
 * {
@@ -131,8 +131,8 @@ body {
 }
 
 .music-player {
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -150,14 +150,14 @@ body {
 }
 
 h2#music-title {
-    color: #000000;
+    color: #fff;
     font-weight: bold;
     font-size: 1.2em;
 }
 
 h3#music-artist {
     margin: 0 0 2px;
-    color: #000000;
+    color: #fff;
     font-weight: normal;
     font-size: 1em;
 }
@@ -182,7 +182,7 @@ h3#music-artist {
     display: flex;
     justify-content: space-between;
     font-size: 0.9em;
-    color: #0e0e0e;
+    color: #fff;
 }
 
 .controls {
@@ -322,6 +322,7 @@ h3#music-artist {
 
 #modal {
     position: fixed;
+    font-family: "Roboto Mono", monospace;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -503,6 +504,13 @@ footer {
 }
 
 @media (max-width: 480px) {
+    #modal p {
+        font-size: 0.8em;
+    }
+    #modal {
+        width: 90%;
+        padding: 15px;
+    }
     .hero-content h1 {
         font-size: 2em;
     }
@@ -517,7 +525,7 @@ footer {
     }
     .swiper img {
         box-shadow: 0 1px 2px #0003;
-        max-width: 80%;
+        max-width: 90%;
         max-height: 60vh;
     }
 }
